@@ -1,0 +1,37 @@
+<div class="component-container">
+  <div class="menu-list">
+    <button class="btn-category" (click)="onGetEntries()">Alle Einträge</button>
+    <button class="btn-category ziele" (click)="onSelect('ziele')">
+      Ziele
+    </button>
+    <button class="btn-category ideen" (click)="onSelect('ideen')">
+      Ideen
+    </button>
+    <button class="btn-category erfolge" (click)="onSelect('erfolge')">
+      Erfolge
+    </button>
+    <button class="btn-category rückschläge" (click)="onSelect('rückschläge')">
+      Rückschläge
+    </button>
+    <input
+      class="search-field"
+      type="text"
+      id="search"
+      name="q"
+      (keyup)="onSearch($event)"
+      placeholder="Suche"
+    />
+  </div>
+  <div class="entries-display">
+    <ul class="liste-entries">
+      <li class="entry" *ngFor="let entry of entries">
+        <p class="category-label">
+          {{ entry.category | titlecase }}
+        </p>
+        <p class="entry-text">
+          {{ entry.content }}
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>

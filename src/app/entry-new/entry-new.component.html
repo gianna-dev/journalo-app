@@ -1,0 +1,21 @@
+<form #f="ngForm" class="form" (ngSubmit)="onSubmit(f)">
+  <div class="form-group">
+    <label for="category" class="form-label">Kategorie auswählen</label>
+    <select id="category" name="category" ngModel required>
+      <option value="" selected disabled hidden>
+        Bitte wähle eine Kategorie
+      </option>
+      <option value="ziele">Ziele</option>
+      <option value="ideen">Ideen</option>
+      <option value="erfolge">Erfolge</option>
+      <option value="rückschläge">Rückschläge</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="content" class="form-label">Neuer Eintrag</label>
+    <textarea name="content" id="content" ngModel required></textarea>
+  </div>
+  <button type="submit" class="btn-submit" [disabled]="!f.valid">
+    Speichern
+  </button>
+</form>
